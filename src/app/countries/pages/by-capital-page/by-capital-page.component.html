@@ -1,3 +1,5 @@
+<!-- (onValue)="searchByCapital($event)" -->
+
 <h2>By Capital</h2>
 <hr />
 
@@ -6,7 +8,8 @@
     <!-- SearBox -->
     <shared-search-box
       placeHolder="Search By Capital"
-      (onValue)="searchByCapital($event)"
+      (onDebounce)="searchByCapital($event)"
+      [initialValue]="initialValue"
     >
     </shared-search-box>
   </div>
@@ -15,6 +18,7 @@
 <div class="row">
   <div class="col">
     <hr />
+    <shared-loader *ngIf="isLoading"></shared-loader>
     <countries-table [countries]="countries"></countries-table>
   </div>
 </div>
